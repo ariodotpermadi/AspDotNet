@@ -1,0 +1,22 @@
+﻿@page
+@model MyApp.Pages._2D_Model._2d_modelModel
+@{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>well</th>
+                <th>bhp</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.twomodel)
+            {
+                <tr>
+                    <td>@item.well</td>
+                    <td>@item.bhp</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
