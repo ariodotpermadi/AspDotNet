@@ -1,0 +1,30 @@
+﻿@page
+@model MyApp.Pages.User_INA.UserInaModel
+@{
+}
+
+<h2>List User From USA</h2>
+
+<table class="table">
+    <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Created At</th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listClientsIna)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>@item.created_at</td>
+            </tr>
+        }
+    </tbody>
+</table>
