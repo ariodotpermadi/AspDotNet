@@ -7,28 +7,28 @@ namespace MyApp.Pages._2D_Model
 {
     public class _2d_modelModel : PageModel
     {
-        public List<twoinfo> twomodel = new List<twoinfo>();
+        public List<Twoinfo> two_model = new List<Twoinfo>();
         public void OnGet()
         {
             try
             {
-                string connectionString = "Data Source=LAPTOP-O42TT8AG\\SQLEXPRESS;Initial Catalog=HOPE_TOM;Persist Security Info=True;User ID=HPI;Password=12345";
+                string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=HOPE_TOM;Integrated Security=True";
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection hope_connection = new SqlConnection(connectionString))
                 {
-                    connection.Open();
-                    String sql = "SELECT * FROM scada_BHP";
-                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    hope_connection.Open();
+                    String sql = "SELECT uwi, value FROM scada_BHP";
+                    using (SqlCommand command = new SqlCommand(sql, hope_connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                twoinfo twoinfo = new twoinfo();
-                                twoinfo.well = reader.GetString(1);
-                                twoinfo.bhp = reader.GetString(2);
+                                Twoinfo two_info = new Twoinfo();
+                                two_info.uwi = reader.GetString(0);
+                                two_info.value = reader.GetString(1);
 
-                                twomodel.Add(twoinfo);
+                                two_model.Add(two_info);
 
                             }
                         }
@@ -41,9 +41,9 @@ namespace MyApp.Pages._2D_Model
             }
         }
     }
-    public class twoinfo
+    public class Twoinfo
     {
-        public string well;
-        public string bhp;
+        public string uwi;
+        public string value;
     }
 }

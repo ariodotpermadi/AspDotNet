@@ -1,0 +1,32 @@
+﻿@page
+@model MyApp.Pages.Scada_BHP.ScadaBHPModel
+@{
+}
+
+<h2>Pep Code</h2>
+
+<table class="table">
+    <thead>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Parent Code</th>
+        <th>Code Desc</th>
+        <th>Child Code</th>
+        <th>Subcode Desc</th>
+        <th>Pep Code</th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.scadaInfos)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.type</td>
+                <td>@item.parent_code</td>
+                <td>@item.code_desc</td>
+                <td>@item.child_code</td>
+                <td>@item.subcode_desk</td>
+                <td>@item.pep_code</td>
+            </tr>
+        }
+    </tbody>
+</table>
