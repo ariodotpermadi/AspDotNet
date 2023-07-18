@@ -3,8 +3,14 @@
 @{
 }
 
+<div class="content-container">
+    <div class="container body-content">
 <h2>List of Clients</h2>
 <a class="btn btn-primary" href="/Clients/Create">New Client</a>
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal">
+    Buka Modal
+</button>
+
 <table class="table">
     <thead>
         <tr>
@@ -36,3 +42,55 @@
     </tbody>
 
 </table>
+
+
+<!--Modal-->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Client</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <!-- Tambahkan elemen form yang diperlukan di sini -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="email" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="email" class="form-control" id="address" name="address">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="offset-sm-3 col-sm-3 d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-3 d-grid">
+                    <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<!--Script Modal-->
+@section Scripts {
+    <script>
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+    </script>
+}

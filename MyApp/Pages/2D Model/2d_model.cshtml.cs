@@ -25,8 +25,8 @@ namespace MyApp.Pages._2D_Model
                             while (reader.Read())
                             {
                                 Twoinfo two_info = new Twoinfo();
-                                two_info.uwi = reader.GetString(0);
-                                two_info.value = reader.GetString(1);
+                                two_info.uwi = reader.GetString(1);
+                                two_info.value = reader.GetString(2);
 
                                 two_model.Add(two_info);
 
