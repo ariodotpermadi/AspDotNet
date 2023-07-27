@@ -1,0 +1,50 @@
+﻿@page
+@model MyApp.Pages.ChartPage.LineChartModel
+@{
+}
+
+
+<!--<div class="text-center">
+    <h3>Line Chart</h3>
+</div>-->
+
+<head>
+        
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">Line Chart</div>
+        <div class="card-body"><canvas id="lineChart"></canvas></div>
+    </div>
+    
+</body>
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        var ctx = document.getElementById('lineChart').getContext('2d');
+        var chartData = @Html.Raw(Json.Serialize(Model.DataPoint));
+
+        var dates = chartData.map(x => x.chartTimeStamp);
+        var values = chartData.map(x => x.value);
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Values',
+                    data: values,
+                    borderColor: 'blue',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+}

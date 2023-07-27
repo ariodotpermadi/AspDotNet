@@ -12,7 +12,7 @@
         .sidebar {
             width: 150px;
             position: fixed;
-            top: 0;
+            top: 50px;
             left: 0;
             height: 92vh;
             <!--height:auto;-->
@@ -62,20 +62,27 @@
             <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-page="/Privacy"><strong>Privacy</strong></a>
             </li>
-            <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Clients/Index"><strong>Clients</strong></a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/2D Model/2d_model"><strong>2D Model</strong></a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/User_USA/userUsa"><strong>USA Clients</strong></a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/User_INA/userIna"><strong>INA Clients</strong></a>
-            </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="">
+                        <strong>Clients</strong>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" asp-area="" asp-page="/Clients/Index"><strong>All Clients</strong></a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-area="" asp-page="/User_USA/userUsa"><strong>USA Clients</strong></a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-area="" asp-page="/User_INA/userIna"><strong>INA Clients</strong></a>
+                        </li>
+                    </ul>
+                </li>
             <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-page="/Chart_area/ChartArea"><strong>Chart Area</strong></a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/ChartPage/LineChart"><strong>Chart</strong></a>
             </li>
             <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-page="/Scada_BHP/ScadaBHP"><strong>Pep Code</strong></a>
@@ -140,7 +147,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
